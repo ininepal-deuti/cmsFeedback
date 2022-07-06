@@ -119,8 +119,8 @@
                                 </p>
                             </div>
 
-                            <form class="row" id="formSubmit" action="{{ route('feedback.store') }}" method="POST">
-                            @csrf
+                            <form class="row" id="formSubmit">
+                                @csrf
                                 <div class="form-process">
                                     <div class="css3-spinner">
                                         <div class="css3-spinner-scaler"></div>
@@ -128,96 +128,106 @@
                                 </div>
                                 <div class="col-6 form-group">
                                     <label>Contact Person Name:</label>
-                                    <input type="text" name="name" id="name" class="form-control required" value="" placeholder="Enter your Full Name">
+                                    <input type="text" name="name" id="name" class="form-control" value="" placeholder="Enter your Full Name">
+                                    <span class="text-danger" id="name-error"></span>
                                 </div>
                                 <div class="col-6 form-group">
                                     <label>Organization Name:</label>
-                                    <input type="text" name="organization" id="organization" class="form-control required" value="" placeholder="Enter your Organization Name">
+                                    <input type="text" name="organization" id="organization" class="form-control" value="" placeholder="Enter your Organization Name">
+                                    <span class="text-danger" id="organization-error"></span>
                                 </div>
                                 <div class="col-6 form-group">
                                     <label>Email:</label>
-                                    <input type="email" name="email" id="email" class="form-control required" value="" placeholder="Enter your Email">
+                                    <input type="email" name="email" id="email" class="form-control" value="" placeholder="Enter your Email">
+                                    <span class="text-danger" id="email-error"></span>
                                 </div>
                                 <div class="col-6 form-group">
                                     <label>Mobile No:</label>
-                                    <input type="number" name="mobile" id="mobile" class="form-control required" value="" placeholder="Enter your Mobile Number">
+                                    <input type="number" name="mobile" id="mobile" class="form-control" value="" placeholder="Enter your Mobile Number">
+                                    <span class="text-danger" id="mobile-error"></span>
                                 </div>
                                 <div class="col-6 form-group">
                                     <label>Date:</label>
-                                    <input type="text" class="form-control datepicker required" name="date" id="date" value="" placeholder="MM/DD/YYYY" data-date-start-date="-2m" data-date-end-date="0d">
+                                    <input type="text" class="form-control datepicker" name="date" id="date" value="" placeholder="MM/DD/YYYY" data-date-start-date="-2m" data-date-end-date="0d">
+                                    <span class="text-danger" id="date-error"></span>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label>Supervisor’s management and assistance:</label>
                                         <div class="btn-group d-flex" role="group">
-                                            <input type="radio" class="btn-check required" name="supervisor" id="supervisor-1" value="Excellent">
+                                            <input type="radio" class="btn-check" name="supervisor" id="supervisor-1" value="Excellent">
                                             <label class="btn btn-outline-success" for="supervisor-1"><i class="icon-grin-beam1"></i>Excellent</label>
 
-                                            <input type="radio" class="btn-check required" name="supervisor" id="supervisor-2" value="Good">
+                                            <input type="radio" class="btn-check" name="supervisor" id="supervisor-2" value="Good">
                                             <label class="btn btn-outline-info" for="supervisor-2"><i class="icon-smile1"></i>Good</label>
 
-                                            <input type="radio" class="btn-check required" name="supervisor" id="supervisor-3" value="Fair">
+                                            <input type="radio" class="btn-check" name="supervisor" id="supervisor-3" value="Fair">
                                             <label class="btn btn-outline-warning" for="supervisor-3"><i class="icon-meh1"></i>Fair</label>
 
-                                            <input type="radio" class="btn-check required" name="supervisor" id="supervisor-4" value="Poor">
+                                            <input type="radio" class="btn-check" name="supervisor" id="supervisor-4" value="Poor">
                                             <label class="btn btn-outline-danger" for="supervisor-4"><i class="icon-frown1"></i>Poor</label>
                                         </div>
+                                        <span class="text-danger" id="supervisor-error"></span>
                                     </div>
                                     <div class="form-group">
                                         <label>Staff’s professionalism and aptitude:</label>
                                         <div class="btn-group d-flex">
-                                            <input type="radio" class="btn-check required" name="staff" id="staff-1" value="Excellent">
+                                            <input type="radio" class="btn-check" name="staff" id="staff-1" value="Excellent">
                                             <label class="btn btn-outline-success" for="staff-1"><i class="icon-grin-beam1"></i>Excellent</label>
 
-                                            <input type="radio" class="btn-check required" name="staff" id="staff-2" value="Good">
+                                            <input type="radio" class="btn-check" name="staff" id="staff-2" value="Good">
                                             <label class="btn btn-outline-info" for="staff-2"><i class="icon-smile1"></i>Good</label>
 
-                                            <input type="radio" class="btn-check required" name="staff" id="staff-3" value="Fair">
+                                            <input type="radio" class="btn-check" name="staff" id="staff-3" value="Fair">
                                             <label class="btn btn-outline-warning" for="staff-3"><i class="icon-meh1"></i>Fair</label>
 
-                                            <input type="radio" class="btn-check required" name="staff" id="staff-4" value="Poor">
+                                            <input type="radio" class="btn-check" name="staff" id="staff-4" value="Poor">
                                             <label class="btn btn-outline-danger" for="staff-4"><i class="icon-frown1"></i>Poor</label>
                                         </div>
+                                        <span class="text-danger" id="staff-error"></span>
                                     </div>
                                     <div class="form-group">
                                         <label>Neatness & Clearance Area:</label>
                                         <div class="btn-group d-flex">
-                                            <input type="radio" class="btn-check required" name="neatness" id="neatness-1" value="Excellent">
+                                            <input type="radio" class="btn-check" name="neatness" id="neatness-1" value="Excellent">
                                             <label class="btn btn-outline-success" for="neatness-1"><i class="icon-grin-beam1"></i>Excellent</label>
 
-                                            <input type="radio" class="btn-check required" name="neatness" id="neatness-2" value="Good">
+                                            <input type="radio" class="btn-check" name="neatness" id="neatness-2" value="Good">
                                             <label class="btn btn-outline-info" for="neatness-2"><i class="icon-smile1"></i>Good</label>
 
-                                            <input type="radio" class="btn-check required" name="neatness" id="neatness-3" value="Fair">
+                                            <input type="radio" class="btn-check" name="neatness" id="neatness-3" value="Fair">
                                             <label class="btn btn-outline-warning" for="neatness-3"><i class="icon-meh1"></i>Fair</label>
 
-                                            <input type="radio" class="btn-check required" name="neatness" id="neatness-4" value="Poor">
+                                            <input type="radio" class="btn-check" name="neatness" id="neatness-4" value="Poor">
                                             <label class="btn btn-outline-danger" for="neatness-4"><i class="icon-frown1"></i>Poor</label>
                                         </div>
+                                        <span class="text-danger" id="neatness-error"></span>
                                     </div>
                                     <div class="form-group">
                                         <label>How will you rate our overall quality of our Cleaning Service?</label>
                                         <div class="btn-group d-flex">
-                                            <input type="radio" class="btn-check required" name="rate" id="rate-1" value="Excellent">
+                                            <input type="radio" class="btn-check" name="rate" id="rate-1" value="Excellent">
                                             <label class="btn btn-outline-success" for="rate-1"><i class="icon-grin-beam1"></i>Excellent</label>
 
-                                            <input type="radio" class="btn-check required" name="rate" id="rate-2" value="Good">
+                                            <input type="radio" class="btn-check" name="rate" id="rate-2" value="Good">
                                             <label class="btn btn-outline-info" for="rate-2"><i class="icon-smile1"></i>Good</label>
 
-                                            <input type="radio" class="btn-check required" name="rate" id="rate-3" value="Fair">
+                                            <input type="radio" class="btn-check" name="rate" id="rate-3" value="Fair">
                                             <label class="btn btn-outline-warning" for="rate-3"><i class="icon-meh1"></i>Fair</label>
 
-                                            <input type="radio" class="btn-check required" name="rate" id="rate-4" value="Poor">
+                                            <input type="radio" class="btn-check" name="rate" id="rate-4" value="Poor">
                                             <label class="btn btn-outline-danger" for="rate-4"><i class="icon-frown1"></i>Poor</label>
                                         </div>
+                                        <span class="text-danger" id="rate-error"></span>
                                     </div>
                                 </div>
                                 <div class="col-12 form-group">
                                     <label>More Feedback:</label>
-                                    <textarea name="feedback" id="feedback" class="form-control required" cols="30" rows="8"></textarea>
+                                    <textarea name="feedback" id="feedback" class="form-control" cols="30" rows="8"></textarea>
+                                    <span class="text-danger" id="feedback-error"></span>
                                 </div>
                                 <div class="col-12">
-                                    <button type="submit" class="btn btn-success">Submit Feedback</button>
+                                    <button type="submit" id="submit" class="btn btn-success">Submit Feedback</button>
                                 </div>
                             </form>
                         </div>
@@ -274,38 +284,54 @@
         $('.datepicker').datepicker({
             autoclose: true
         });
-        $('form#formSubmit').submit(function () {
-            var formData = $(this).serialize();
+        $('#submit').on('click',function (e) {
+            e.preventDefault();
+            let name = $('#name').val();
+            let email = $('#email').val();
+            let mobile = $('#mobile').val();
+            let organization = $('#organization').val();
+            let supervisor =$('input[name="supervisor"]:checked').val();
+            let staff =$('input[name="staff"]:checked').val();
+            let neatness =$('input[name="neatness"]:checked').val();
+            let rate =$('input[name="rate"]:checked').val();
+            let feedback = $('#feedback').val();
+            let date = $('#date').val();
+
             var xhr = $.ajax({
                 type: "POST",
                 url: "{{ route("feedback.store") }}",
-                data: formData,
+                data:{
+                    "_token": "{{ csrf_token() }}",
+                    name:name,
+                    email:email,
+                    mobile:mobile,
+                    organization:organization,
+                    supervisor:supervisor,
+                    staff:staff,
+                    rate:rate,
+                    neatness:neatness,
+                    feedback:feedback,
+                    date:date,
+                },
                 success:function(response){
                     console.log(response);
-                        $('#successMessage').show();
-                        // $("#feedback-form")[0].reset();
+                    $('#successMessage').show();
+                    $("#formSubmit")[0].reset();
                 },
-                // success: function (msg) {
-                //     if (msg == 'OK') {
-                //         console.log(msg)
-                //         $("#successMessage").show();
-                //         // $("#name").val('');
-                //         // $("#email").val('');
-                //         // $("#mobile").val('');
-                //         // $("#date").val('');
-                //         // $("#organization").val('');
-                //         // $("#supervisor").val('');
-                //         // $("#staff").val('');
-                //         // $("#rate").val('');
-                //         // $("#neatness").val('');
-                //         // $("#feedback").val('');
-                //     } else {
-                //         $("#successMessage").hide();
-                //     }
-                //
-                // }
+                error: function(response) {
+                    $('#name-error').text(response.responseJSON.errors.name);
+                    $('#organization-error').text(response.responseJSON.errors.organization);
+                    $('#mobile-error').text(response.responseJSON.errors.mobile);
+                    $('#email-error').text(response.responseJSON.errors.email);
+                    $('#date-error').text(response.responseJSON.errors.date);
+                    $('#supervisor-error').text(response.responseJSON.errors.supervisor);
+                    $('#neatness-error').text(response.responseJSON.errors.neatness);
+                    $('#staff-error').text(response.responseJSON.errors.staff);
+                    $('#rate-error').text(response.responseJSON.errors.rate);
+                    $('#feedback-error').text(response.responseJSON.errors.feedback);
+                }
             });
-            return false;
+            // return false;
         });
     })
 </script>

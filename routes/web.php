@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PublicController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +15,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/',[\App\Http\Controllers\PublicController::class,'index'])->name('feedback.index');
-Route::post('/feedback/store',[\App\Http\Controllers\PublicController::class,'store'])->name('feedback.store');
+Route::get('/',[PublicController::class,'index'])->name('feedback.index');
+Route::post('/feedback/submit',[PublicController::class,'formSubmit'])->name('feedback.store');
 

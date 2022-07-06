@@ -5,18 +5,20 @@ namespace App\Http\Controllers;
 use App\Mail\SendMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use App\Http\Controllers\Controller;
+
 use PDF;
 
 class PublicController extends Controller
 {
     public function index()
     {
-        return view('feedback');
+        return view('form');
     }
 
-    public function store(Request $request)
+    public function formSubmit(Request $request)
     {
-        $this->validate($request, [
+        $validated = $this->validate($request, [
             'name'         => 'required',
             'organization' => 'required',
             'email'        => 'required|email',
@@ -32,7 +34,6 @@ class PublicController extends Controller
         $data["name"] = $request->name;
         $data["organization"] = $request->organization;
         $data["email"] = $request->email;
-        //$data["email"] = "deuti@ininepal.com";
         $data["mobile"] = $request->mobile;
         $data["date"] = $request->date;
         $data["feedback"] = $request->feedback;
