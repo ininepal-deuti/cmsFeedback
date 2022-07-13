@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/',[PublicController::class,'index'])->name('feedback.index');
+Route::get('/',function(){
+    return "Coming Soon";
+});
+Route::get('/feedback',[PublicController::class,'index'])->name('feedback.index');
 Route::post('/feedback/submit',[PublicController::class,'formSubmit'])->name('feedback.store');
 
